@@ -1,19 +1,13 @@
-import { Component } from "react";
+// import { useState } from "react";
 import "../assets/styles/Pad.css";
 
-class Pad extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="drum-pad">
-        <h1>Pad</h1>
-      </div>
-    );
-  }
+function Pad(props) {
+  return (
+    <div className="drum-pad">
+      <h1>Pad</h1>
+      <audio src=""></audio>
+    </div>
+  );
 }
 
 export default Pad;
