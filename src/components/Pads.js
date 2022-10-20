@@ -1,19 +1,14 @@
-// import { useState } from "react";
 import Pad from "./Pad.js";
 import "../assets/styles/Pads.css";
 
-function Pads() {
+function Pads(props) {
+  const { sounds, handleClick } = props;
+
   return (
     <div id="pads">
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
+      {sounds.map((sound) => (
+        <Pad sound={sound} handleClick={handleClick} key={sound.key} />
+      ))}
     </div>
   );
 }

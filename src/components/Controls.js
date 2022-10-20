@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { Silver } from "react-dial-knob";
 import "../assets/styles/Controls.css";
 
@@ -14,16 +13,22 @@ function Controls(props) {
           value={props.volume}
           onValueChange={props.setVolume}
         />
-        <p>Volume</p>
+        <p className="text-white text-uppercase">Volume</p>
       </div>
       <div id="make-model">
         <div id="brand">
-          <p className="text-white text-center">BRAND</p>
+          <p id="brand-name" className="text-white text-center">
+            BRAND
+          </p>
         </div>
         <div id="screen-border">
           <div id="screen">
-            <p className="text-white text-center">Model Name</p>
-            <div id="display"></div>
+            <p id="model-name" className="text-white text-center">
+              Model Name
+            </p>
+            <div id="display">
+              <p>{props.sound}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,11 +1,37 @@
-// import { useState } from "react";
+import { useEffect, useRef } from "react";
 import "../assets/styles/Pad.css";
 
 function Pad(props) {
+  const { id, key, keycode, soundUrl } = props.sound;
+  const { handleClick } = props;
+  const audio = useRef(null);
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.keyCode === keycode) handleClick(audio.current, id);
+    };
+
+    document.body.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.body.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleClick, audio, id, keycode]);
+
   return (
-    <div className="drum-pad">
-      <h1>Pad</h1>
-      <audio src=""></audio>
+    <div
+      id={id}
+      className="drum-pad"
+      onClick={() => handleClick(audio.current, id)}
+    >
+      <h2 className="text-uppercase">{key}</h2>
+      <audio
+        id={key.toUpperCase()}
+        className="clip"
+        src={soundUrl}
+        preload="auto"
+        ref={audio}
+      ></audio>
     </div>
   );
 }
