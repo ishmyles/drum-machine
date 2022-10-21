@@ -1,6 +1,8 @@
 :root {
     --drum-machine-bg: #ced4da;
-    --drum-machine-border: 2px solid #c4cad0;
+    --drum-machine-border: 2px solid #8b8c89; 
+    --drum-machine-border-sides: 3px solid #8b8c89;
+    --drum-machine-shadow: 5px 5px 10px black;
 }
 
 #drum-machine {
@@ -14,4 +16,7 @@
     padding: 40px 25px;
     border-radius: 5px;
     border: var(--drum-machine-border);
+    border-left: var(--drum-machine-border-sides);
+    border-right: var(--drum-machine-border-sides);
+    box-shadow: var(--drum-machine-shadow);
 }
