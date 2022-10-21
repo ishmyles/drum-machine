@@ -1,7 +1,36 @@
+:root {
+    --outer-screen-color: #011627;
+    --outer-screen-border: 1px solid #6c757d;
+    --led-screen-color: #00cbf4; 
+    --led-screen-glow: 0 0 10px #02d5ff;
+    --white-text: white;
+    --black-text: black;
+    --bg-black: black;
+}
+
+#brand-name {
+    font-size: 1.3em;
+    text-align: right;
+    user-select: none;
+}
+
+.brand-logo-one {
+    font-family: "Noto Sans Display", sans-serif;
+}
+
+.brand-logo-two {
+    font-family: "Paytone One", sans-serif;
+}
+
+.logo-box {
+	background: var(--bg-black);
+    padding: 0 5px;
+    margin-left: 3px;
+    border-radius: 5px;
+}
+
 #controls {
     display: flex;
-    /* gap: 2%; */
-    background-color: darkgray;
     width: 100%;
     height: 30%;
 }
@@ -33,19 +62,21 @@
 }
 
 #screen {
-    background-color: darkslategrey;
+    background-color: var(--outer-screen-color);
     width: 100%;
     height: 80%;
     border-radius: 10px;
+    border: var(--outer-screen-border);
 }
 
 #display {
-    background-color: aqua;
+    background-color: var(--led-screen-color);
     width: 80%;
     height: 55%;
     margin: 5px auto 0 auto;
     padding: 5px;
     border-radius: 5px;
+    box-shadow: var(--led-screen-glow);
 }
 
 #model-name {
@@ -75,7 +106,7 @@
 }
 
 .volume-bar {
-    background-color: black;
+    background-color: var(--black-text);
     width: 6%;
     height: 100%;
     margin: 0 1px;
@@ -88,7 +119,11 @@
 }
 
 .text-white {
-    color: white;
+    color: var(--white-text);
+}
+
+.text-black {
+    color: var(--black-text);
 }
 
 .text-center {
