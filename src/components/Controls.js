@@ -35,13 +35,16 @@ function Controls({ volume, setVolume, sound }) {
           value={volume}
           onValueChange={setVolume}
         />
-        <p className="text-white text-uppercase text-xs">Volume</p>
+        <p className="text-black text-uppercase text-xs">Volume</p>
       </div>
       <div id="make-model">
         <div id="brand">
-          <p id="brand-name" className="text-white text-center">
-            BRAND
-          </p>
+          <h1 id="brand-name" className="text-black text-center">
+            <span className="brand-logo-one">Beat</span>
+            <span className="brand-logo-two text-uppercase text-white logo-box">
+              Box
+            </span>
+          </h1>
         </div>
         <div id="screen-border">
           <div id="screen">
