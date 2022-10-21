@@ -13,7 +13,7 @@ function Controls({ volume, setVolume, sound }) {
     setDisplayVolume(true);
     setTimeout(() => {
       setDisplayVolume(false);
-    }, 3000);
+    }, 5000);
   }, [setDisplayVolume]);
 
   useEffect(() => {
@@ -67,9 +67,7 @@ function Controls({ volume, setVolume, sound }) {
                           <div className="volume-bar" key={i}></div>
                         ))
                       ) : (
-                        <span className="text-digital text-uppercase">
-                          Muted
-                        </span>
+                        <span className="text-digital text-uppercase">Off</span>
                       )}
                     </div>
                   </Fragment>
