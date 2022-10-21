@@ -1,14 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../assets/styles/Pad.css";
 
 function Pad(props) {
-  const { id, key, keycode, soundUrl, soundName } = props.sound;
+  const { id, key, keycode, soundUrl, soundName, color } = props.sound;
   const { handleClick } = props;
   const audio = useRef(null);
 
+  const [activePad, setActivePad] = useState(false);
+
+  const togglePad = () => {
+    setActivePad(true);
+    setTimeout(() => {
+      setActivePad(false);
+    }, 300);
+  };
+
+  const getPadColor = () => {
+    let padClasses = `drum-pad pad-${color} `;
+    return activePad ? (padClasses += "active-pad") : padClasses;
+  };
+
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.keyCode === keycode) handleClick(audio.current, soundName);
+      if (e.keyCode === keycode) {
+        togglePad();
+        handleClick(audio.current, soundName);
+      }
     };
 
     document.body.addEventListener("keydown", handleKeyPress);
@@ -21,10 +38,13 @@ function Pad(props) {
   return (
     <div
       id={id}
-      className="drum-pad"
-      onClick={() => handleClick(audio.current, soundName)}
+      className={getPadColor()}
+      onClick={() => {
+        togglePad();
+        handleClick(audio.current, soundName);
+      }}
     >
-      <h2 className="text-uppercase">{key}</h2>
+      <h2 className="text-key text-uppercase">{key}</h2>
       <audio
         id={key.toUpperCase()}
         className="clip"

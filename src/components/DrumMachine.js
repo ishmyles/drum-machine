@@ -6,6 +6,7 @@ import "../assets/styles/DrumMachine.css";
 const soundData = [
   {
     id: "#heater-1",
+    color: "blue",
     key: "q",
     keycode: 81,
     soundName: "Heater 1",
@@ -13,6 +14,7 @@ const soundData = [
   },
   {
     id: "#heater-2",
+    color: "blue",
     key: "w",
     keycode: 87,
     soundName: "Heater 2",
@@ -20,6 +22,7 @@ const soundData = [
   },
   {
     id: "#heater-3",
+    color: "blue",
     key: "e",
     keycode: 69,
     soundName: "Heater 3",
@@ -27,6 +30,7 @@ const soundData = [
   },
   {
     id: "#heater-4",
+    color: "blue",
     key: "a",
     keycode: 65,
     soundName: "Heater 4",
@@ -34,6 +38,7 @@ const soundData = [
   },
   {
     id: "#clap",
+    color: "green",
     key: "s",
     keycode: 83,
     soundName: "Clap",
@@ -41,6 +46,7 @@ const soundData = [
   },
   {
     id: "#open-hh",
+    color: "orange",
     key: "d",
     keycode: 68,
     soundName: "Open HH",
@@ -48,6 +54,7 @@ const soundData = [
   },
   {
     id: "#kick-n-hat",
+    color: "pink",
     key: "z",
     keycode: 90,
     soundName: "Kick n Hat",
@@ -55,6 +62,7 @@ const soundData = [
   },
   {
     id: "#kick",
+    color: "pink",
     key: "x",
     keycode: 88,
     soundName: "Kick",
@@ -62,6 +70,7 @@ const soundData = [
   },
   {
     id: "#closed-hh",
+    color: "orange",
     key: "c",
     keycode: 67,
     soundName: "Closed HH",
