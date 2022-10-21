@@ -2,13 +2,13 @@ import { useEffect, useRef } from "react";
 import "../assets/styles/Pad.css";
 
 function Pad(props) {
-  const { id, key, keycode, soundUrl } = props.sound;
+  const { id, key, keycode, soundUrl, soundName } = props.sound;
   const { handleClick } = props;
   const audio = useRef(null);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.keyCode === keycode) handleClick(audio.current, id);
+      if (e.keyCode === keycode) handleClick(audio.current, soundName);
     };
 
     document.body.addEventListener("keydown", handleKeyPress);
@@ -16,13 +16,13 @@ function Pad(props) {
     return () => {
       document.body.removeEventListener("keydown", handleKeyPress);
     };
-  }, [handleClick, audio, id, keycode]);
+  }, [handleClick, audio, soundName, keycode]);
 
   return (
     <div
       id={id}
       className="drum-pad"
-      onClick={() => handleClick(audio.current, id)}
+      onClick={() => handleClick(audio.current, soundName)}
     >
       <h2 className="text-uppercase">{key}</h2>
       <audio
