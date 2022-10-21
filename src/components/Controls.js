@@ -1,7 +1,29 @@
+import { Fragment, useCallback, useEffect, useState, useRef } from "react";
 import { Silver } from "react-dial-knob";
 import "../assets/styles/Controls.css";
 
-function Controls(props) {
+function Controls({ volume, setVolume, sound }) {
+  const prevVolume = useRef();
+  const prevVolNum = prevVolume.current;
+  const volumeBars = Array(volume).fill("");
+
+  const [displayVolume, setDisplayVolume] = useState(null);
+
+  const showVolume = useCallback(() => {
+    setDisplayVolume(true);
+    setTimeout(() => {
+      setDisplayVolume(false);
+    }, 3000);
+  }, [setDisplayVolume]);
+
+  useEffect(() => {
+    prevVolume.current = volume;
+  });
+
+  useEffect(() => {
+    if (prevVolNum !== volume) showVolume();
+  }, [showVolume, prevVolNum, volume]);
+
   return (
     <div id="controls">
       <div id="volume">
@@ -10,10 +32,10 @@ function Controls(props) {
           min={0}
           max={10}
           step={1}
-          value={props.volume}
-          onValueChange={props.setVolume}
+          value={volume}
+          onValueChange={setVolume}
         />
-        <p className="text-white text-uppercase">Volume</p>
+        <p className="text-white text-uppercase text-xs">Volume</p>
       </div>
       <div id="make-model">
         <div id="brand">
@@ -23,11 +45,39 @@ function Controls(props) {
         </div>
         <div id="screen-border">
           <div id="screen">
-            <p id="model-name" className="text-white text-center">
-              Model Name
+            <p id="model-name" className="text-white text-center text-sm">
+              DM-1200-A
             </p>
             <div id="display">
-              <p>{props.sound}</p>
+              <div id="volume-indicator">
+                {displayVolume && (
+                  <Fragment>
+                    <p
+                      id="volume-led-label"
+                      className="text-digital text-uppercase"
+                    >
+                      Volume:
+                    </p>
+                    <div id="volume-bars">
+                      {volume ? (
+                        volumeBars.map((elem, i) => (
+                          <div className="volume-bar" key={i}></div>
+                        ))
+                      ) : (
+                        <span className="text-digital text-uppercase">
+                          Muted
+                        </span>
+                      )}
+                    </div>
+                  </Fragment>
+                )}
+              </div>
+              <p
+                id="sound-played"
+                className="text-digital text-uppercase text-center"
+              >
+                {sound}
+              </p>
             </div>
           </div>
         </div>

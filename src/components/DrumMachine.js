@@ -76,6 +76,7 @@ function DrumMachine() {
   const playSound = (audio, soundDesc) => {
     setCurrentSound(soundDesc);
     let sound = audio;
+    sound.currentTime = 0;
     sound.volume = currentVolume / 10;
     sound.play();
   };
